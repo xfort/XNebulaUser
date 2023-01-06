@@ -1,0 +1,101 @@
+syntax = "proto3";
+package  xuser;
+//protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/addressbook.proto
+//    C:\WORK\sdk\proto\bin\protoc.exe  -I=C:\WORK\go_code\xfort\xrockcrawler\pkg\music\proto  --go_out=C:\WORK\go_code\xfort\xrockcrawler C:\WORK\go_code\xfort\xrockcrawler\pkg\music\proto\netease.proto
+//import "google/protobuf/any.proto";
+
+option go_package = "github.com/xfort/XNebulaUser/api/proto";
+option java_package = "com.github.xfort.XNebulaUser.api.proto";
+
+
+message XNebulaReq{
+  //组合appID sign
+  string reqID = 1;
+  string token = 2;
+  string data = 3;
+  //毫秒UTC
+  uint64 utc = 4;
+  string sign = 5;
+  uint32 appID = 6;
+}
+
+
+message XNebulaResp{
+  uint32  status = 1;
+  string message = 2;
+  string data = 3;
+  uint64 utc = 4;
+  string sign = 5;
+}
+
+enum XUserGroup{
+  NULL = 0;
+  STRANGER = 1;
+  NOR = 2;
+  ADMIN = 3;
+}
+
+enum CaptchaProduct{
+  UNKNOW = 0;
+  ANJI_PLUS = 1;
+  ALI = 2;
+  TENCENT = 3;
+}
+
+//发送短信验证码
+message SendAuthMsgReq{
+  //业务动作ID
+  int32 actionID = 1;
+  string mobile = 2;
+  // 行为验证 产品商
+  int32 captchaProduct = 3;
+  //行为验证
+  string captchaData = 4;
+}
+
+//用户注册
+message XUserSignupReq{
+  //手机号
+  string mobile = 1;
+  //密码
+  string password = 2;
+  //短信验证码
+  string authMsgCode = 3;
+  //手机号
+  string email = 4;
+  //邮箱验证码
+  string emailAuthCode = 5;
+}
+//用户登录方式类型
+enum XUserLoginCode{
+  NUL = 0;
+  //手机+验证码
+  MOBILE_AUTH_CODE = 1;
+  //邮箱+密码
+  EMAIL_PASSWORD = 2;
+  //手机+密码
+  MOBILE_PASSWORD = 3;
+}
+
+//登录
+message XUserLoginReq{
+  //登录类别 XUserLoginCode，手机+验证码登录、邮箱+密码登录、手机+密码登录
+  uint32 loginCode = 1;
+  string mobile = 2;
+  string email = 3;
+  string password = 4;
+  string authMsgCode = 5;
+  //所属组(XUserGroup)，区分访客、普通用户、管理员等类型
+  uint32 groupCode = 6;
+  // 行为验证 产品商
+  int32 captchaProduct = 10;
+  //行为验证
+  string captchaData = 11;
+}
+
+//登录结果
+message XUserLoginResp{
+  uint32 userID = 1;
+  string name = 2;
+  string token = 3;
+}
