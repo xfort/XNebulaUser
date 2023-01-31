@@ -3,22 +3,22 @@ package main
 import (
 	"crypto/md5"
 	"fmt"
-	userdb "github.com/xfort/XNebulaUser/db"
+	xdb "github.com/xfort/XNebulaUser/db"
 	"log"
 	"time"
 )
 
 func main() {
-	xuserDB, err := userdb.OpenXUserDB("C:\\WORK\\GoCode\\github.com\\xfort\\XNebulaUser")
+	xuserDB, err := xdb.OpenXUserDB("C:\\WORK\\GoCode\\github.com\\xfort\\XNebulaUser")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	var xuserDBer userdb.XNebulaUserDBer
+	var xuserDBer xdb.XNebulaUserDBer
 	xuserDBer = xuserDB
 	userID := time.Now().UnixMicro()
 
-	xuserDAO := userdb.XUserDAO{
+	xuserDAO := xdb.XUserDAO{
 		UserID:   userID,
 		Nickname: "name",
 		Passwd:   fmt.Sprintf("%x", md5.Sum([]byte(time.Now().String()))),
