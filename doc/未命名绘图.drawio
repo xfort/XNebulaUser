@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-01T07:50:54.779Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="c0DbGhJmqA0vMA8kk_hq" version="20.8.14" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-01T07:53:03.695Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="Dof9P8vOy7LxXM2JVJJL" version="20.8.14" type="github">
   <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="1093" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -22,7 +22,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="2" value="用户-注册" style="swimlane;whiteSpace=wrap" parent="1" vertex="1">
-          <mxGeometry x="160" y="10" width="280" height="826" as="geometry" />
+          <mxGeometry x="160" y="2" width="280" height="826" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.506;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="2" source="7" target="8">
           <mxGeometry relative="1" as="geometry" />
@@ -40,7 +40,7 @@
           <mxGeometry x="5.5" y="292.5" width="110" height="28" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-69" value="行为验证是否成功" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="2">
-          <mxGeometry x="10.5" y="368" width="100" height="70" as="geometry" />
+          <mxGeometry x="10.5" y="362" width="100" height="70" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-85" value="记录临时token" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="2">
           <mxGeometry x="20" y="572" width="100" height="40" as="geometry" />
@@ -61,7 +61,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-50" value="校验手机号规则" style="" vertex="1" parent="3">
-          <mxGeometry x="67.5" y="110" width="110" height="34" as="geometry" />
+          <mxGeometry x="67.5" y="104" width="110" height="34" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3" source="GZBZKkGN8Y1aCkfuJeDu-52" target="GZBZKkGN8Y1aCkfuJeDu-53">
           <mxGeometry relative="1" as="geometry" />
@@ -70,16 +70,16 @@
           <mxGeometry x="47.5" y="168" width="150" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-53" value="1.存储手机号状态为注册中；&lt;br&gt;2.新建行为验证码；" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="3">
-          <mxGeometry x="40" y="287" width="165" height="55" as="geometry" />
+          <mxGeometry x="40" y="279" width="165" height="55" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="3" source="GZBZKkGN8Y1aCkfuJeDu-74" target="GZBZKkGN8Y1aCkfuJeDu-81">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-74" value="校验行为验证正确、过期" style="" vertex="1" parent="3">
-          <mxGeometry x="53.75" y="388" width="137.5" height="34" as="geometry" />
+          <mxGeometry x="53.75" y="380" width="137.5" height="34" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-77" value="1.创建、存储短信验证码，&#xa;并记录发送次数、时间；&#xa;2.记录手机号验证进度；&#xa;3.由手机号、验证码生成临时token&#xa;4.发送短信验证码；" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="3">
-          <mxGeometry x="40" y="558" width="157.5" height="84" as="geometry" />
+          <mxGeometry x="40" y="550" width="157.5" height="84" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.53;entryY=-0.015;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="3" source="GZBZKkGN8Y1aCkfuJeDu-81" target="GZBZKkGN8Y1aCkfuJeDu-77">
           <mxGeometry relative="1" as="geometry" />
@@ -88,13 +88,10 @@
           <mxGeometry x="47.5" y="446" width="150" height="80" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-89" value="1,检验token是否正确；&#xa;2.检验验证码；" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="3">
-          <mxGeometry x="37.5" y="683" width="180" height="42" as="geometry" />
+          <mxGeometry x="37.5" y="676" width="180" height="42" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-92" value="1.修改手机验证进度；&#xa;2.新增用户，创建、记录token" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="3">
-          <mxGeometry x="37.5" y="762" width="180" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="4" value="持久存储" style="swimlane;whiteSpace=wrap;startSize=23;" parent="1" vertex="1">
-          <mxGeometry x="724.5" y="4" width="280" height="570" as="geometry" />
+          <mxGeometry x="37.5" y="750" width="180" height="32" as="geometry" />
         </mxCell>
         <mxCell id="GZBZKkGN8Y1aCkfuJeDu-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.005;entryY=0.564;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="GZBZKkGN8Y1aCkfuJeDu-69" target="GZBZKkGN8Y1aCkfuJeDu-74">
           <mxGeometry relative="1" as="geometry" />
