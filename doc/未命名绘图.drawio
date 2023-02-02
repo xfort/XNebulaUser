@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-02T02:03:42.805Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="D3i6995HlMsU-kLqwSrG" version="20.8.14" type="github">
+<mxfile host="app.diagrams.net" modified="2023-02-02T02:06:16.120Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="8C1TWVgNJR5M3duZQqg2" version="20.8.14" type="github">
   <diagram name="Page-1" id="e7e014a7-5840-1c2e-5031-d8a46d1fe8dd">
     <mxGraphModel dx="1093" dy="670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -117,7 +117,7 @@
           <mxGeometry x="70" y="80" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-11" value="检验邮箱、密码格式；&#xa;校验行为验证" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-8">
-          <mxGeometry x="70" y="170" width="110" height="38" as="geometry" />
+          <mxGeometry x="55" y="170" width="140" height="38" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-36" value="邮箱链接" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-8">
           <mxGeometry x="70" y="466" width="110" height="38" as="geometry" />
@@ -128,11 +128,11 @@
         <mxCell id="NDAAlmEfH0ZUJVM90STk-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="NDAAlmEfH0ZUJVM90STk-18" source="NDAAlmEfH0ZUJVM90STk-21" target="NDAAlmEfH0ZUJVM90STk-32">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NDAAlmEfH0ZUJVM90STk-21" value="校验邮箱、密码格式；&#xa;校验行为验证；" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
-          <mxGeometry x="72.5" y="170" width="110" height="34" as="geometry" />
+        <mxCell id="NDAAlmEfH0ZUJVM90STk-21" value="校验邮箱、密码格式；&#xa;校验行为验证；&#xa;校验临时token" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
+          <mxGeometry x="56.25" y="160" width="167.5" height="46" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-24" value="1.新建邮箱验证链（验证码），记录验证码、邮箱注册状态、发邮时间频率；&lt;br&gt;2.发送邮件；" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
-          <mxGeometry x="45" y="360" width="165" height="70" as="geometry" />
+          <mxGeometry x="56.25" y="370" width="165" height="70" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="NDAAlmEfH0ZUJVM90STk-18" source="NDAAlmEfH0ZUJVM90STk-26" target="NDAAlmEfH0ZUJVM90STk-27">
           <mxGeometry relative="1" as="geometry">
@@ -140,23 +140,23 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-26" value="1.校验链接中验证码；&#xa;2.检查邮箱状态（已注册？禁用）" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
-          <mxGeometry x="27.5" y="470" width="200" height="34" as="geometry" />
+          <mxGeometry x="35" y="470" width="200" height="34" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-27" value="1.记录邮箱状态、进度；&#xa;2.新增用户；&#xa;3.新建token并记录" style="fillColor=rgb(255, 255, 255);strokeColor=rgb(0, 0, 0);fontColor=rgb(0, 0, 0);align=left;" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
-          <mxGeometry x="48.75" y="540" width="157.5" height="50" as="geometry" />
+          <mxGeometry x="56.25" y="552" width="157.5" height="50" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="NDAAlmEfH0ZUJVM90STk-18" source="NDAAlmEfH0ZUJVM90STk-32" target="NDAAlmEfH0ZUJVM90STk-24">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-32" value="检查邮箱状态（已注册？禁用？发邮频率异常？）" style="rhombus;whiteSpace=wrap;html=1;fillColor=rgb(255, 255, 255);" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
-          <mxGeometry x="32.5" y="250" width="190" height="80" as="geometry" />
+          <mxGeometry x="45" y="250" width="190" height="80" as="geometry" />
         </mxCell>
         <mxCell id="NDAAlmEfH0ZUJVM90STk-34" value="1.新建行为验证码；&#xa;2.新建临时token" style="" vertex="1" parent="NDAAlmEfH0ZUJVM90STk-18">
           <mxGeometry x="67.5" y="40" width="110" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="NDAAlmEfH0ZUJVM90STk-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NDAAlmEfH0ZUJVM90STk-27">
+        <mxCell id="NDAAlmEfH0ZUJVM90STk-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NDAAlmEfH0ZUJVM90STk-27">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="160" y="1665" as="targetPoint" />
+            <mxPoint x="150" y="1677" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
