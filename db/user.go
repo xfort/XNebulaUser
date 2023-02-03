@@ -5,8 +5,8 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	//_ "github.com/mattn/go-sqlite3"
-	_ "github.com/xeodou/go-sqlcipher"
+	_ "github.com/mattn/go-sqlite3"
+	//_ "github.com/xeodou/go-sqlcipher"
 	"log"
 	"path/filepath"
 	"strings"
@@ -22,10 +22,10 @@ var createXUserTab = fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s (
     %s INTEGER PRIMARY KEY,
     %s varchar(128) NOT NULL,
     %s varchar(64) NOT NULL,
-    %s varchar(20) NOT NULL,
-    %s varchar(64) NOT NULL,
+    %s varchar(20) NOT NULL ,
+    %s varchar(64) NOT NULL ,
     %s varchar(200) NOT NULL,
-    %s INTEGER NOT NULL, 
+    %s INTEGER NOT NULL DEFAULT 1, 
     %s INTEGER NOT NULL
     );`,
 	UserTab_NAME, UserTab_USER_ID, UserTab_PASSWD, UserTab_NICKNAME, UserTab_MOBILE, UserTab_EMAIL, UserTab_ICON, UserTab_StatueCode, UserTab_CREATE_UTC)
@@ -34,15 +34,29 @@ var createXUserTab = fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s (
 var sql_CreateXUserTabIndex = [2]string{
 	//WHERE %s IS NOT NULL
 	fmt.Sprintf(`CREATE UNIQUE INDEX IF NOT EXISTS xuser_mobile ON %s(%s) ;`, UserTab_NAME, UserTab_MOBILE),
-	fmt.Sprintf(`CREATE UNIQUE INDEX IF NOT EXISTS xuser_email ON %s(%s);`, UserTab_NAME, UserTab_EMAIL)}
+	fmt.Sprintf(`CREATE UNIQUE INDEX IF NOT EXISTS xuser_email ON %s(%s);`, UserTab_NAME, UserTab_EMAIL),
+}
 
 // 用户token表
 var createXUserTokenTab = fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s (
     %s INTEGER PRIMARY KEY,
-    %s varchar(128) NOT NULL)`,
+    %s varchar(128) NOT NULL);`,
 	XUserTokenTab_Name, XUserTokenTab_USER_ID, XUserTokenTab_TOKEN)
 
-var xUserInfoColumens = [5]UserTable{UserTab_USER_ID, UserTab_NICKNAME, UserTab_MOBILE, UserTab_EMAIL, UserTab_ICON}
+// 邮箱验证表，user_id、email都不为空
+var createXUserEmailAuthTab = fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s (
+	%s INTEGER PRIMARY KEY,
+    %s varchar(64) UNIQUE INDEX,
+    %s INT NOT NULL DEFAULT 1,
+    %s INT NOT NULL DEFAULT 1,
+    %s INT NOT NULL DEFAULT 0,
+    %s INTEGER NOT NULL DEFAULT 0,
+    %s INTEGER NOT NULL DEFAULT 0
+    );`,
+	XUserEmailAuthTab_Name, XUserEmailAuthTab_USER_ID, XUserEmailAuthTab_EMAIL, XUserEmailAuthTab_CODE, XUserEmailAuthTab_ACTION,
+	XUserEmailAuthTab_CREATE_COUNT, XUserEmailAuthTab_DEAD_UTC, XUserEmailAuthTab_LAST_CREATE)
+
+var xUserInfoColumens = [6]UserTable{UserTab_USER_ID, UserTab_NICKNAME, UserTab_MOBILE, UserTab_EMAIL, UserTab_ICON, UserTab_StatueCode}
 
 // 用于查询用户表的前段固定SQL
 var sql_QueryXUserInfo = fmt.Sprintf(`SELECT %s,%s,%s,%s,%s FROM %s`, xUserInfoColumens[0], xUserInfoColumens[1], xUserInfoColumens[2], xUserInfoColumens[3], xUserInfoColumens[4], UserTab_NAME)
@@ -95,14 +109,14 @@ func createTable(userDB *sql.DB) error {
 	return err
 }
 
-// 新增用户
+// 新增用户。先检查 手机号、邮箱是否已使用
 func (xuserDB *XUserSQLiteDB) Add(user *XUserDAO) (*XUserDAO, error) {
 	if user.UserID <= 0 || len(user.Passwd) < 16 {
 		return user, errors.New("userID，passwd 参数异常")
 	}
-	if (len(user.Mobile) < 8) || (len(user.Email) < 4) {
-		return user, errors.New("Mobile、Email参数异常_")
-	}
+	//if (len(user.Mobile) < 8) || (len(user.Email) < 4) {
+	//	return user, errors.New("Mobile、Email参数异常_")
+	//}
 	sql := fmt.Sprintf(`INSERT INTO %s(%s,%s,%s,%s,%s,%s,%s) VALUES(?,?,?,?,?,?,?);`,
 		UserTab_NAME, UserTab_USER_ID, UserTab_PASSWD, UserTab_NICKNAME, UserTab_MOBILE, UserTab_EMAIL, UserTab_ICON, UserTab_CREATE_UTC)
 
@@ -111,7 +125,7 @@ func (xuserDB *XUserSQLiteDB) Add(user *XUserDAO) (*XUserDAO, error) {
 }
 
 // 手机+短信验证
-func (xuserDB *XUserSQLiteDB) QueryByMobile(mobile string) (*XUserDAO, error) {
+func (xuserDB *XUserSQLiteDB) QueryByMobile(mobile string, authCode int32) (*XUserDAO, error) {
 	if !strings.Contains(mobile, "-") || len(mobile) < 8 {
 		return nil, errors.New("手机号格式异常，格式必须是地区码-手机号")
 	}
